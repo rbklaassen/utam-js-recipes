@@ -15,9 +15,9 @@ exports.config = {
             'appium:autoWebview': true,
             'appium:deviceName': 'iPhone 12',
             // TODO: replace with the test application path in your local
-            'appium:app': '<path to iOS test app>',
+            'appium:app': '/Users/rklaassen/Downloads/CommunitiesApp.app',
             'appium:automationName': 'XCUITest',
-            'appium:platformVersion': '15.2',
+            'appium:platformVersion': '15.0',
         },
     ],
 };

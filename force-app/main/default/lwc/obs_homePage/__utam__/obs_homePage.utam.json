@@ -1,0 +1,68 @@
+{
+    "elements": [
+        {
+            "name": "button",
+            "public": true,
+            "type": "salesforce-pageobjects/lightning/pageObjects/button",
+            "selector": {
+                "css": ".createAccountButton"
+            }
+        },
+        {
+            "public": true,
+            "name": "input",
+            "type": "salesforce-pageobjects/lightning/pageObjects/input",
+            "selector": {
+                "css": ".userNameInput"
+            }
+        },
+        {
+            "public": true,
+            "name": "input1",
+            "type": "salesforce-pageobjects/lightning/pageObjects/input",
+            "selector": {
+                "css": ".passwordInput"
+            }
+        },
+        {
+            "public": true,
+            "name": "pContent1",
+            "type": [],
+            "selector": {
+                "css": ".p1"
+            }
+        },
+        {
+            "public": true,
+            "name": "pContent2",
+            "type": [],
+            "selector": {
+                "css": ".p2"
+            }
+        },
+        {
+            "public": true,
+            "name": "pContent3",
+            "type": [],
+            "selector": {
+                "css": ".p3"
+            }
+        },
+        {
+            "public": true,
+            "name": "pContent4",
+            "type": [],
+            "selector": {
+                "css": ".p4"
+            }
+        },
+        {
+            "public": true,
+            "name": "button1",
+            "type": "salesforce-pageobjects/lightning/pageObjects/button",
+            "selector": {
+                "css": ".button2"
+            }
+        }
+    ]
+}

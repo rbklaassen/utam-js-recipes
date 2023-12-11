@@ -9,4 +9,10 @@ import { LightningElement } from 'lwc';
 
 export default class Hello extends LightningElement {
     greeting = 'World';
+
+    clickedButtonLabel;
+
+    handleClick(event) {
+        this.clickedButtonLabel = event.target.label;
+    }
 }

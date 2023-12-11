@@ -1,0 +1,332 @@
+<template>
+    <lightning-layout multiple-rows>
+    <lightning-layout-item >
+    <template if:true={showHomePage}>        
+        <div class="backgroundImg" style={getBackgroundImage}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-12">
+                </div>
+                <div class="slds-col slds-size_10-of-12">
+                <div class="slds-text-heading_large slds-align_absolute-center " style="padding-top: 120%"><h1 class="h1Custom">{welcomeScreenTitle}</h1></div>
+                <div class="slds-text-heading_large slds-align_absolute-center "><h2 class="h2Custom">{welcomeMessage}</h2></div>  
+                </br> 
+                <div class="slds-align_absolute-center"> 
+                    <lightning-button
+                        variant="brand" 
+                        label="Create account" 
+                        title="Primary action" 
+                        onclick={showEmailInput} 
+                        class="slds-button slds-button_brand btnNextCustom createAccountButton"
+                        >
+                    </lightning-button>  
+                </div>
+                </br>
+                <a href="/login"><p style= "text-align: center; " class="linkCustom">Already have an account? Log in</p></a>
+                </div>
+                <div class="slds-col slds-size_1-of-12">
+                </div>
+            </div>
+        </div>
+    </template>
+</lightning-layout-item>
+</lightning-layout> 
+<!--
+    <template if:true={showRegistrationProcess}>
+        <h2 class="h2Custom" style="padding-top: 200px;">Which weight-management medication were you prescribed?</h2> 
+        <lightning-combobox 
+            class="cmbBoxCustom"
+            name="medication"
+            value={value}
+            placeholder="Select medication"
+            options={options}
+            onchange={showNextButton}>
+        </lightning-combobox>
+        <h4 style="font-size: 14px; color:rgb(30, 30, 110)">I have not been prescribed a weight-management medication</h4>
+        </br>  
+        </br> 
+        </br>  
+        </br> 
+        <template if:true={showNextBtn}>
+            <div class="slds-align_absolute-center"> 
+                <lightning-button 
+                    variant="brand" 
+                    label="Next" 
+                    title="Primary action" 
+                    onclick={showEmailInput} 
+                    class="slds-button slds-button_brand btnNextCustom">
+                </lightning-button>
+            </div>
+        </template>
+    </template>-->
+    
+    <template if:true={showEmail}>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-12">
+            </div>
+            <div class="slds-col slds-size_10-of-12">
+                <div class="divCustom" style="padding-top: 20%">
+                        <h2 class="h2CustomTitle">Create your login</h2>
+                    <div class="slds-form-element" style ="width:100%"> 
+                        <lightning-input
+                            label="Email" 
+                            type="email"
+                            class="textInput userNameInput" 
+                            maxlength="60"                    
+                            pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" 
+                            message-when-pattern-mismatch="Please enter a valid email address"
+                            onchange={emailValidation}>
+                        </lightning-input>
+                    </div>                   
+                    <div class="slds-form-element">
+                        <div class="slds-is-relative" style ="width:100%">
+                            <lightning-icon size="x-small" icon-name={passwordIcon} onclick={passwordHandler} class="input-icon right-icon">                        
+                            </lightning-icon>
+                            <lightning-input  
+                                label="Password"                        
+                                type={passwordType}  
+                                maxlength="60" 
+                                pattern="[a-zA-Z0-9-]"
+                                message-when-pattern-mismatch="Please enter a valid password"
+                                onchange={showNextButtonPassword}
+                                name="userPassword" 
+                                class="right-icon passwordInput" >
+                            </lightning-input>
+                            </div>
+                            <div class="slds-text-body_small">
+                                <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+                                    <h3>Password must contain the following :</h3>
+                                    <p data-id="letter" class="invalid p1">A lowercase letter</p>
+                                    <p data-id="capital" class="invalid p2">A uppercase letter</p>
+                                    <p data-id="number" class="invalid p3">A number character</p>
+                                    <p data-id="length" class="invalid p4">Minimum 8 characters</p>
+                                </div>
+                            </div>
+                    </div> 
+                    </br> 
+                    <template if:true={showNextBtn}>
+                        <div class="slds-align_absolute-left"> 
+                            <lightning-button 
+                                variant="brand" 
+                                label="Next" 
+                                title="Primary action" 
+                                onclick={showFirstNameInput} 
+                                class="slds-button slds-button_brand btnNextCustom button2">
+                            </lightning-button>
+                        </div>
+                    </template>
+                </div> 
+            </div>
+            <div class="slds-col slds-size_1-of-12">
+            </div> 
+        </div>       
+    </template>
+    
+    <template if:true={showFirstName}>       
+            <div class="slds-form-element" style ="width:100%"> 
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-12">
+                    </div>
+                    <div class="slds-col slds-size_10-of-12">
+                    <h2 class="h2CustomTitle" style="padding-top: 20%;">What do you prefer to be called?</h2> 
+                        <lightning-input 
+                            type="text" 
+                            maxlength="15"
+                            minlength="3"
+                            class="textInput" 
+                            label="Preferred first name"           
+                            onchange={showNextButtonFirstName}>
+                        </lightning-input>
+                        <h3>Preferred first name 3–15 characters long.</h3>
+                        </br>  
+                        </br> 
+                        </br>  
+                        </br> 
+                        <template if:true={showNextBtn}>
+                            <div class="slds-align_absolute-center"> 
+                                <lightning-button 
+                                    variant="brand" 
+                                    label="Next" 
+                                    title="Primary action" 
+                                    onclick={showFirstNameConfirmationInput} 
+                                    class="slds-button slds-button_brand btnNextCustom">
+                                </lightning-button>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12">
+                    </div>
+                </div>
+            </div>        
+    </template>
+
+    <template if:true={showFirstNameConfirmation}>  
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-12">
+            </div>
+            <div class="slds-col slds-size_10-of-12">
+                <div class="slds-align_absolute-center"> 
+                    <h2 class="h2CustomTitle1" style="padding-top: 200px;">Nice to meet you, </h2> 
+                </div> 
+                <div class="slds-align_absolute-center">
+                    <h2 class="h2CustomTitle1">{firstName}</h2>
+                </div> 
+                <div class="slds-align_absolute-center slds-box slds-theme_default">     
+                    </br>
+                    <h3>An email has been sent to your email address containing an activation link. Please click on the link to activate your account.</h3>
+                </div> 
+                 
+            </div>
+            <div class="slds-col slds-size_1-of-12">
+            </div>
+        </div>      
+    </template>
+
+    <!--
+    <template if:true={showLastName}>
+        <h2 class="h2Custom">What do you prefer to be called?</h2> 
+        <lightning-input 
+            type="text" 
+            label="Your last name"           
+            onchange={showNextButton}>
+        </lightning-input>
+        </br>  
+        </br> 
+        </br>  
+        </br> 
+        <template if:true={showNextBtn}>
+            <div class="slds-align_absolute-center"> 
+                <lightning-button 
+                    variant="brand" 
+                    label="Next" 
+                    title="Primary action" 
+                    onclick={showPasswordInput} 
+                    class="slds-button slds-button_brand btnNextCustom">
+                </lightning-button>
+            </div>
+        </template>        
+    </template> -->
+    <template if:true={showPassword}> 
+        <lightning-input
+            type="password"
+            label="Enter your password"
+            pattern="[a-zA-Z0-9-]"
+            message-when-pattern-mismatch="Please enter a valid password"
+            onchange={showNextButtonPassword}
+            name="password">
+        </lightning-input>
+        <!--<lightning-input
+            type="password"
+            label="Confirm your password"
+            name="password"
+            onchange={showNextButton}>
+        </lightning-input> -->
+        <h3>Must be 8 or more characters and contain at least 1 number.</h3>
+        </br>  
+        </br> 
+        </br>  
+        </br> 
+        <template if:true={showNextBtn}>
+            <div class="slds-align_absolute-center"> 
+                <lightning-button 
+                    variant="brand" 
+                    label="Next" 
+                    title="Primary action" 
+                    onclick={showVerificationCodeInput} 
+                    class="slds-button slds-button_brand btnNextCustom">
+                </lightning-button>
+            </div>
+        </template>
+        
+    </template>
+    <template if:true={showVerificationCode}>
+        <h1 class="h2Custom">Verify your email</h1>
+        <h4>We sent a six-digit verification code to [email]. Enter the code below to verify your email.</h4>
+        <div class="slds-grid">
+            <div class="slds-col">             
+            </div>
+            <div class="slds-col">              
+            </div>
+            <div class="slds-col">              
+            </div>
+            <div class="slds-col codeInput">
+                <lightning-input
+                maxlength="1" 
+                type="number"
+                name="verificationCode">
+            </lightning-input>
+            </div>
+            <div class="slds-col codeInput">
+                <lightning-input
+                maxlength="1" 
+                type="number"
+                name="verificationCode">
+            </lightning-input>
+            </div>
+            <div class="slds-col codeInput">
+                <lightning-input
+                maxlength="1" 
+                type="number"
+                name="verificationCode">
+            </lightning-input>
+            </div>
+            <div class="slds-col codeInput">
+                <lightning-input
+                maxlength="1" 
+                type="number"
+                name="verificationCode">
+            </lightning-input>
+            </div>
+            <div class="slds-col codeInput">
+                <lightning-input
+                maxlength="1" 
+                type="number"
+                name="verificationCode">
+            </lightning-input>
+            </div>
+            <div class="slds-col codeInput">
+                <lightning-input
+                maxlength="1" 
+                type="number"
+                name="verificationCode"
+                onchange={showNextButton}>
+            </lightning-input>
+            </div>
+            <div class="slds-col">
+              
+            </div>
+            <div class="slds-col">
+            </div>
+            <div class="slds-col">
+            </div>
+          </div>
+        <h4>Didn’t get an email? Check that the email above is correct, check your spam folder, or resend email.</h4>
+        </br>  
+        </br>
+        <template if:true={showNextBtn}>
+            <div class="slds-align_absolute-center"> 
+                <lightning-button 
+                    variant="brand" 
+                    label="Next" 
+                    title="Primary action" 
+                    onclick={showConfirmation} 
+                    class="slds-button slds-button_brand btnNextCustom">
+                </lightning-button>
+            </div>
+        </template>
+    </template>
+    <template if:true={showConfirmationScrean}>
+        <div class="slds-align_absolute-center">
+            <lightning-icon icon-name="action:approval" alternative-text="Approved" title="Approved" ></lightning-icon>
+        </div>
+        </br>  
+        </br>
+        <div class="slds-align_absolute-center">
+            <p>Success!</p> 
+        </div> 
+        </br>
+        <div class="slds-align_absolute-center">
+            <p>Thanks for not giving a fake email 😎 </p>
+        </div>
+    </template> 
+ 
+</template>

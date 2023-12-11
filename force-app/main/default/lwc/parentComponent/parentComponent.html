@@ -1,0 +1,19 @@
+<template>
+
+    <lightning-card title="Data From Child">
+      <p class="slds-p-horizontal_small">
+        <lightning-input
+          value={nameValue}
+          type="text"
+          label="Name from Child">
+       </lightning-input>
+       <c-child-component 
+        onnamevaluechange={handleNameValueChange}
+        inputtype="text"
+        inputlabel="Enter your name"
+        inputname="name">
+       </c-child-component>
+     </p>
+    </lightning-card>
+  
+</template>

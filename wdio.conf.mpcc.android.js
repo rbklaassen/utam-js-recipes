@@ -16,8 +16,9 @@ exports.config = {
             'appium:automationName': 'UiAutomator2',
             'appium:deviceName': 'emulator-5554',
             // TODO: replace with the test application path in your local
-            'appium:app': '<path to Android test app>',
-            'appium:appActivity': 'com.mysalesforce.community.startgate.StartActivity',
+            'appium:app':
+                '/Users/rklaassen/Downloads/com_mysalesforce_mycommunity_playgroundcommunity-s3Playground.apk',
+            'appium:appActivity': 'com.mysalesforce.community.activity.CommunitiesWebviewActivity',
             'appium:appPackage': 'com.mysalesforce.mycommunity.playgroundcommunity',
             'appium:newCommandTimeout': 240,
         },

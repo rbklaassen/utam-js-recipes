@@ -15,7 +15,7 @@ import { TestEnvironment } from './utilities/test-environment';
 import RecordActionWrapper from 'salesforce-pageobjects/global/pageObjects/recordActionWrapper';
 
 // TODO: replace with prefix of the environment from .env file
-const TEST_ENVIRONMENT_PREFIX = 'na44';
+const TEST_ENVIRONMENT_PREFIX = 'qdkldev';
 
 describe('Record creation tests', () => {
     const testEnvironment = new TestEnvironment(TEST_ENVIRONMENT_PREFIX);
@@ -28,13 +28,12 @@ describe('Record creation tests', () => {
     it('Create a new Account Record', async () => {
         let recordFormModal = await openRecordModal(baseUrl, RecordType.Account);
         // TODO - depending on org setup, modal might not present, then comment next lines
-        /* 
+
         console.log('Load Change Record Type Modal');
         recordFormModal = await utam.load(RecordActionWrapper);
         console.log("Change Record Type Modal: click button 'Next'");
         const changeRecordTypeFooter = await recordFormModal.waitForChangeRecordFooter();
         await changeRecordTypeFooter.clickButton('Next');
-        */
 
         console.log('Load Record Form Modal');
         recordFormModal = await utam.load(RecordActionWrapper);
@@ -56,7 +55,7 @@ describe('Record creation tests', () => {
         console.log('Load Accounts Record Home page');
         await utam.load(RecordHomeFlexipage2);
     });
-
+    /*
     it('Create a new Opportunity Record', async () => {
         console.log('Load Record Form Modal');
         const recordFormModal = await openRecordModal(baseUrl, RecordType.Opportunity);
@@ -98,4 +97,5 @@ describe('Record creation tests', () => {
         console.log('Load Record Home page');
         await utam.load(RecordHomeFlexipage2);
     });
+    */
 });

@@ -1,0 +1,29 @@
+:host {
+    --color-dark-blue: #0092bc;
+    --color-light-blue: #eff7fc;
+    --color-black: #333333;
+    --color-white: #fff;
+    --color-pink: #c6007e;
+    --gap: 16px;
+
+    --dxp-style-c-padding-top: var(--gap);
+    --dxp-style-c-padding-bottom: var(--gap);
+    --dxp-style-c-padding-left: var(--gap);
+    --dxp-style-c-padding-right: var(--gap);
+
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Apis';
+    font-weight: 400;
+    color: var(--color-black);
+    overflow-x: hidden;
+}
+
+slot {
+    margin: 0px;
+    padding: 0xpx;
+}

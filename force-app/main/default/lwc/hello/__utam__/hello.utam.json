@@ -1,25 +1,116 @@
 {
+    "description": {
+        "author": "UTAM generator",
+        "text": [
+            "Page Object: hello"
+        ]
+    },
+    "root": true,
+    "selector": {
+        "css": "c-hello"
+    },
     "shadow": {
         "elements": [
             {
-                "name": "lightningCard",
+                "public": true,
+                "name": "divContent",
+                "type": [],
                 "selector": {
-                    "css": "lightning-card"
+                    "css": "div"
+                }
+            },
+            {
+                "public": true,
+                "name": "h2Content",
+                "type": [],
+                "selector": {
+                    "css": "h2"
                 },
-                "type": "salesforce-pageobjects/lightning/pageObjects/card"
+                "elements": [
+                    {
+                        "public": true,
+                        "name": "codeContent",
+                        "type": [],
+                        "selector": {
+                            "css": "code"
+                        }
+                    }
+                ]
+            },
+            {
+                "public": true,
+                "name": "button",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button"
+                }
+            },
+            {
+                "public": true,
+                "name": "button1",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button:nth-of-type(2)"
+                }
+            },
+            {
+                "public": true,
+                "name": "button2",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button:nth-of-type(3)"
+                }
+            },
+            {
+                "public": true,
+                "name": "button3",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button:nth-of-type(4)"
+                }
+            },
+            {
+                "public": true,
+                "name": "button4",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button:nth-of-type(5)"
+                }
+            },
+            {
+                "public": true,
+                "name": "button5",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button:nth-of-type(6)"
+                }
+            },
+            {
+                "public": true,
+                "name": "button6",
+                "type": "salesforce-pageobjects/lightning/pageObjects/button",
+                "selector": {
+                    "css": "lightning-button:nth-of-type(7)"
+                }
+            },
+            {
+                "public": true,
+                "name": "pContent",
+                "type": [],
+                "selector": {
+                    "css": "p"
+                },
+                "elements": [
+                    {
+                        "public": true,
+                        "name": "spanContent",
+                        "type": [],
+                        "selector": {
+                            "css": "span"
+                        }
+                    }
+                ]
             }
         ]
-    },
-    "methods": [
-        {
-            "name": "getText",
-            "compose": [
-                {
-                    "element": "lightningCard",
-                    "apply": "getBodyText",
-                    "returnType": "string"
-                }
-            ]
-        }
-    ]
+    }
 }

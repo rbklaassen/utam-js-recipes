@@ -6,7 +6,8 @@
     "scripts": {
         "lint": "eslint .",
         "format": "prettier --write .",
-        "test": "wdio",
+        "test:android": "wdio run wdio.conf.mpcc.android.js",
+        "test:chrome": "wdio",
         "build": "yarn compile:utam && yarn generate:utam",
         "compile:utam": "utam -c utam.config.js && cd utam-preview && yarn compile",
         "generate:utam": "cd utam-generator && yarn generate && yarn compile",
@@ -43,7 +44,7 @@
         "isbinaryfile": "^5.0.0",
         "lint-staged": "11.2.6",
         "prettier": "3.0.3",
-        "salesforce-pageobjects": "^5.0.0",
+        "salesforce-pageobjects": "^5.0.1",
         "wdio-utam-service": "^2.2.0"
     },
     "volta": {
@@ -61,5 +62,9 @@
     "lint-staged": {
         "*.{js,css,md}": "prettier --write",
         "*.js": "eslint"
-    }
+    },
+    "dependencies": {
+        "yarn": "^1.22.19"
+    },
+    "packageManager": "yarn@4.0.1"
 }

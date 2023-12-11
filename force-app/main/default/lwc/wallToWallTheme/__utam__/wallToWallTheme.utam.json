@@ -1,0 +1,16 @@
+{
+    "root": true,
+    "selector": {
+        "css": "c-wall-to-wall-theme"
+    },
+    "elements": [
+        {
+            "name": "wallToWallContainer",
+            "type": "container",
+            "public": true,
+            "selector": {
+                "css": "slot > *"
+            }
+        }
+    ]
+}
